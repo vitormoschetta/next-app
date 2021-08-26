@@ -13,12 +13,22 @@ export default function ProductPage() {
 
     return (
         <Layout>
-            Product Create Page
-            <input type="text" />
+            Cadastrar Produto
 
-            <div className={styles.submenu}>
-                <button onClick={Return} className="">Voltar</button>
+            <div>
+                <label>Nome:</label>
+                <input type="text" name="txtName" />
             </div>
+
+            <div>
+                <label>Preço:</label>
+                <input type="text" name="txtPrice" />
+            </div>
+            
+            <div className="">
+                <button className="">Cadastrar</button>
+                <button onClick={Return} className="">Voltar</button>
+            </div>        
         </Layout>
     )
 }

@@ -1,12 +1,32 @@
 import Layout from '../../template/layout'
 import { useRouter } from 'next/router'
+import Product from '../../core/models/product'
 
 export default function ProductPage(props) {
+
+    const products = [
+        new Product('Product A', 5.99),
+        new Product('Product B', 10.50),
+        new Product('Product C', 250.00)
+    ]
+
 
     const router = useRouter()
 
     function CreateProduct() {
-        router.push('/products/create')        
+        router.push('/products/create')
+    }
+
+    function renderizarDados() {
+        return products?.map((product, i) => {
+            return (
+                <tr>
+                    <td className="text-left p-4">{product.id}</td>
+                    <td className="text-left p-4">{product.name}</td>
+                    <td className="text-left p-4">{product.price}</td>
+                </tr>
+            )
+        })
     }
 
     return (
@@ -21,11 +41,7 @@ export default function ProductPage(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td className="">{props.id}</td>
-                        <td className="">{props.name}</td>
-                        <td className="">{props.price}</td>
-                    </tr>
+                    {renderizarDados()}
                 </tbody>
             </table>
         </Layout>
