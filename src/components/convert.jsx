@@ -1,4 +1,4 @@
-export default function convert() {
+export default function Convert() {
     var checks = document.getElementsByName('opcao')
 
     var contador = 0;
